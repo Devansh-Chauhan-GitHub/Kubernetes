@@ -1,3 +1,4 @@
+
 # 📘 Kubernetes CronJob Documentation
 
 ---
@@ -33,7 +34,7 @@ A **CronJob** in Kubernetes is used to **run Jobs on a schedule**, similar to Li
 
 ## ✅ CronJob YAML with Inline Comments
 
-\`\`\`yaml
+```yaml
 kind: CronJob                      # Key difference: CronJob instead of Job
 apiVersion: batch/v1
 metadata:
@@ -57,24 +58,24 @@ spec:
               image: busybox:latest
               command: ["sh","-c","echo Hello World"]  # Task to run
           restartPolicy: Never      # Required: Pods in Jobs/CronJobs should not restart
-\`\`\`
+```
 
 ---
 
 ## ✅ Important Fields Explained:
 
-- **\`schedule\`**:
+- **`schedule`**:
   - Defines when the Job runs using **cron syntax**:
-    - Format: \`minute hour day-of-month month day-of-week\`
+    - Format: `minute hour day-of-month month day-of-week`
     - Example:
-      - \`*/5 * * * *\` → Every 5 minutes
-      - \`0 0 * * *\` → At midnight every day
+      - `*/5 * * * *` → Every 5 minutes
+      - `0 0 * * *` → At midnight every day
   - Use **[crontab.guru](https://crontab.guru)** to easily calculate cron expressions.
 
-- **\`jobTemplate\`**:
+- **`jobTemplate`**:
   - Same structure as **Job**, but wrapped inside CronJob.
 
-- **\`restartPolicy: Never\`**:
+- **`restartPolicy: Never`**:
   - Ensures Pods don’t restart after success or failure.
 
 ---
@@ -86,26 +87,26 @@ spec:
 
 ## ✅ Diagram: CronJob → Job → Pod
 
-\`\`\`
+```
 +-----------+       +-----------+       +-----------+
 |  CronJob  | --->  |   Job     | --->  |   Pod     |
 +-----------+       +-----------+       +-----------+
 (Scheduled)         (Manages Pods)      (Executes Task)
-\`\`\`
+```
 
 ---
 
 ## ✅ Common Cron Schedules:
 | Schedule         | Meaning                        |
 |------------------|--------------------------------|
-| \`*/2 * * * *\`    | Every 2 minutes              |
-| \`0 0 * * *\`      | Every day at midnight        |
-| \`0 12 * * 1-5\`   | At 12:00 PM, Mon–Fri        |
+| `*/2 * * * *`    | Every 2 minutes              |
+| `0 0 * * *`      | Every day at midnight        |
+| `0 12 * * 1-5`   | At 12:00 PM, Mon–Fri        |
 
 ---
 
 ## ✅ Key Differences with Job YAML
 - **CronJob adds:**
-  - \`schedule\`
-  - \`jobTemplate\` wrapper
+  - `schedule`
+  - `jobTemplate` wrapper
 - **Job runs once**, **CronJob runs periodically**.
