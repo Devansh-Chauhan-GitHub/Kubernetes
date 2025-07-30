@@ -1,0 +1,18 @@
+kind: Job
+apiVersion: batch/v1
+metadata:
+  name: demo-job
+  namespace: nginx
+spec:
+  completions: 2
+  parallelism: 2
+  template: 
+    metadata:
+      labels: 
+        app: demo-job
+    spec:
+      containers:
+        - name: demo
+          image: busybox:latest
+          command: ["sh","-c","echo Hello World"]
+      restartPolicy: Never
