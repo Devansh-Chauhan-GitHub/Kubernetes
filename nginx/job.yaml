@@ -6,13 +6,14 @@ metadata:
 spec:
   completions: 2
   parallelism: 2
-  template: 
+  template:
     metadata:
-      labels: 
-        app: demo-job
+      labels:
+        app: job
     spec:
       containers:
-        - name: demo
+        - name: print
           image: busybox:latest
           command: ["sh","-c","echo Hello World"]
       restartPolicy: Never
+

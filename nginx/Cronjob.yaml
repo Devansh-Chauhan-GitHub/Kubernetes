@@ -1,22 +1,22 @@
 kind: CronJob
 apiVersion: batch/v1
 metadata:
-  name: demo-cron-job
+  name: cron-job
   namespace: nginx
 spec:
   schedule: "*/2 * * * *"
   jobTemplate:
     spec:
-      completions: 1
-      parallelism: 1
+      completions: 2
+      parallelism: 2
       template:
         metadata:
-          name: cron-job-pod
-          labels: 
-            app: CronJob
+          name: cron-job-job
+          labels:
+            app: nginx-name-job
         spec:
           containers:
-            - name: printer-container
+            - name: print
               image: busybox:latest
               command: ["sh","-c","echo Hello World"]
           restartPolicy: Never
