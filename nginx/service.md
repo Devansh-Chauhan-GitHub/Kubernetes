@@ -78,14 +78,9 @@ Local Machine:80  --->  Service:80  --->  Pod:80
 
 ---
 
-## ✅ Architecture Diagrams:
+## ✅ Architecture Diagram:
 
-### **1. Port Forward Flow**
-![Port Forward Flow](https://raw.githubusercontent.com/kubernetes/website/main/static/images/docs/user-guide/kubectl/kubectl-port-forward.png)
-
----
-
-### **2. Service Inside Cluster**
+### **1. Service Inside Cluster**
 ![Service Flow](services.png)
 
 ---
