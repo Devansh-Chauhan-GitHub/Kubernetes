@@ -32,9 +32,10 @@ We will deploy **two applications** inside the same namespace (`nginx`) and expo
 
 ## ✅ Architecture Flow
 
-```
-Client → Ingress Controller → Ingress Rules → Service → Pods
-```
+
+![Ingress Architecture](ingress.png)
+
+
 
 ---
 
