@@ -1,10 +1,8 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: notes-app
+  name: notes-app-deployment
   namespace: notes-app
-  labels:
-    app: notes
 spec:
   replicas: 1
   selector:
@@ -12,12 +10,12 @@ spec:
       app: notes-app-pod
   template:
     metadata:
-      name: notes-pod
+      name: notes-app
       labels:
         app: notes-app-pod
     spec:
       containers:
-        - name: notes-app
+        - name: app
           image: trainwithshubham/notes-app-k8s
           ports:
-            - containerPort: 8000  
+            - containerPort: 8000
