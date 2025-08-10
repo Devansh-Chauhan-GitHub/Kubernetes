@@ -103,9 +103,6 @@ spec:
 
 ---
 
-
----
-
 ## 🖼 Architecture Diagram
 ![HPA Architecture](hpa.png)
 
