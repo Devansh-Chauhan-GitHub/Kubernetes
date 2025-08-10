@@ -103,6 +103,14 @@ spec:
 
 ---
 
+
+---
+
+## 🖼 Architecture Diagram
+![HPA Architecture](hpa.png)
+
+---
+
 ## 📊 Example from Your Cluster
 
 ```bash
